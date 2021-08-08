@@ -1,0 +1,47 @@
+body {
+    background-image: url("../images/horizon.jpg");
+    background-size: cover;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+}
+h1 {
+    font-size: 4.5rem;
+}
+h2 {
+    margin: 30px;
+}
+
+a {
+    color: white;
+}
+
+button, #search {
+    margin: 0 5px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+#city-input {
+    margin-right: 5px;
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+
+#temp {
+    font-size: 40px;
+}
+
+.box {
+    background-color: rgba(140, 144, 151, 0.2);
+border-radius: 20px;
+margin: 20px 100px;
+padding-bottom: 20px;
+padding-top: 20px;;
+}
+
+.parameters {
+    font-size: larger;
+}
+
