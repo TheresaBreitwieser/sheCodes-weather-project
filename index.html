@@ -18,7 +18,7 @@
 <body>
 <div class="container">
         <form id="search-city-form">
-            <input type="text" id="city-input" name="city" placeholder="Enter city here...">
+            <input type="text" id="city-input" name="city" autocomplete="off" placeholder="Enter city here...">
             <input type="submit" value="Search" id="search">
              <button id="buttonLocation">Current</button>
         </form>
@@ -34,10 +34,12 @@
                     <a href=# id="farenheit">F</a>
                 </span>
             </div>
+            <div id="weather-description" class="weatherDescriptionStyle"></div>
             <div id="humidity">Humidity: 80%</div>   
+            <div id="wind-speed">Wind speed:</div>
         </div>
-        <div class="col-md-2 emoji">
-            <i class="far fa-sun fa-5x"></i>
+        <div class="col-md-2">
+            <img src="" alt="" class="align-middle icon" id="icon">
         </div>
     </div>
   <hr />

@@ -45,3 +45,11 @@ padding-top: 20px;;
     font-size: larger;
 }
 
+.weatherDescriptionStyle {
+    text-transform: capitalize;
+
+}
+.icon{
+    width: 30px;
+    margin: 0 auto;
+}

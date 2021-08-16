@@ -25,26 +25,36 @@ let days = [
   // search engine input-form City and display current data
   
   function showCurrentTempCurrentLocation(response) {
+    console.log(response);
     let currentTemp = document.querySelector("#temp");
-    currentTemp.innerHTML = Math.round(response.data.main.temp);
     let currentHumidity = document.querySelector("#humidity");
-    let dataCurrentHumidity = Math.round(response.data.main.humidity);
-    currentHumidity.innerHTML = `Humidity: ${dataCurrentHumidity}%`;
     let h1 = document.querySelector("h1");
+    let weatherDescription = document.querySelector("#weather-description");
+    let wind = document.querySelector("#wind-speed");
+    let iconElement = document.querySelector("#icon");
+    currentTemp.innerHTML = Math.round(response.data.main.temp);
+    currentHumidity.innerHTML = `Humidity: ${Math.round(response.data.main.humidity)}%`;
     h1.innerHTML = response.data.name;
+    weatherDescription.innerHTML = response.data.weather[0].description;
+    wind.innerHTML = `Wind speed: ${Math.round(response.data.wind.speed)} km/h`;
+    iconElement.setAttribute("src", `images/${response.data.weather[0].icon}`);
+    iconElement.setAttribute("alt", response.data.weather[0].description);
   }
   
-  function showCity(event) {
-    event.preventDefault();
-    let cityInput = document.querySelector("#city-input");
+  function showCity(city) {
     let apiKey = "69a9e20cee3bd8ea7b1df001a08c1ef3";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
-  
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     axios.get(apiUrl).then(showCurrentTempCurrentLocation);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    let city = document.querySelector("#city-input").value;
+    showCity(city);
   }
   
   let searchForm = document.querySelector("#search-city-form");
-  searchForm.addEventListener("submit", showCity);
+  searchForm.addEventListener("submit", handleSubmit);
   
   // button - search for current location - API call with lat.long.
   
@@ -63,3 +73,5 @@ let days = [
   
   let locationButton = document.querySelector("#buttonLocation");
   locationButton.addEventListener("click", getCurrentPosition);
+
+  showCity("Vienna");
