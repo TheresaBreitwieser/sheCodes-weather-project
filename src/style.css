@@ -49,7 +49,19 @@ padding-top: 20px;;
     text-transform: capitalize;
 
 }
-.icon{
+.icon {
     width: 30px;
     margin: 0 auto;
+}
+
+.active {
+text-decoration: none;
+font-size: x-large;
+}
+
+.active:hover {
+    cursor: default;
+    text-decoration: none;
+    color: white;
+
 }

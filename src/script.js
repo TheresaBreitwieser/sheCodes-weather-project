@@ -60,6 +60,8 @@ let days = [
   // convert °C to Fahrenheit and reverse
   function convertToFahrenheit(event) {
     event.preventDefault();
+    tempFahrenheit.classList.remove("active");
+    tempDegrees.classList.add("active");
     let fahrenheitTemperature = (celsiusTemperature * 9)/5+32;
     let temperatureElement = document.querySelector("#temp");
     temperatureElement.innerHTML = fahrenheitTemperature;
@@ -67,6 +69,8 @@ let days = [
 
   function convertToCelsius(event) {
     event.preventDefault();
+    tempFahrenheit.classList.add("active");
+    tempDegrees.classList.remove("active");
     let temperatureElement = document.querySelector("#temp");
     temperatureElement.innerHTML = celsiusTemperature;
   }
