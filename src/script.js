@@ -22,6 +22,28 @@ let days = [
   let showDayTime = document.querySelector("#currentDayTime");
   showDayTime.innerHTML = (`${day}, ${hours}:${minutes}`);
   
+ //forecast
+  function displayForecast(){
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHTML = "";
+    let days = ["Monday", "Tuesday", "Wednesday"];
+    days.forEach(function (day) {
+      forecastHTML = forecastHTML + ` 
+      <div class="row justify-content-center">
+        <div class="col-md-2 days">
+          <div>${day}</div>
+        </div>
+        <div class="col-md-2 degree">
+          <div>30°C / 20°C</div>
+        </div>
+        <div class="col-md-2 emojis">    
+          <div><i class="far fa-sun"></i></div>
+        </div>  
+      </div>`;
+    });
+    forecastElement.innerHTML = forecastHTML;
+  }
+
   // search engine input-form City and display current data
   
   function showCurrentWeather(response) {
@@ -102,3 +124,4 @@ let days = [
   locationButton.addEventListener("click", getCurrentPosition);
 
   showCity("Vienna");
+  displayForecast();
