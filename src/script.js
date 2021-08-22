@@ -23,7 +23,8 @@ let days = [
   showDayTime.innerHTML = (`${day}, ${hours}:${minutes}`);
   
  //forecast
-  function displayForecast(){
+  function displayForecast(response){
+    console.log(response);
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = "";
     let days = ["Monday", "Tuesday", "Wednesday"];
@@ -44,10 +45,17 @@ let days = [
     forecastElement.innerHTML = forecastHTML;
   }
 
+  function getForecast(coord) {
+    let lat = coord.lat;
+    let lon = coord.lon;
+    let apiKey = "69a9e20cee3bd8ea7b1df001a08c1ef3";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+  }
+
   // search engine input-form City and display current data
   
   function showCurrentWeather(response) {
-    console.log(response);
     let currentTemp = document.querySelector("#temp");
     let currentHumidity = document.querySelector("#humidity");
     let h1 = document.querySelector("h1");
@@ -62,6 +70,7 @@ let days = [
     wind.innerHTML = `Wind speed: ${Math.round(response.data.wind.speed)} km/h`;
     iconElement.setAttribute("src", `images/${response.data.weather[0].icon}`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    getForecast(response.data.coord);
   }
   
   function showCity(city) {
@@ -124,4 +133,4 @@ let days = [
   locationButton.addEventListener("click", getCurrentPosition);
 
   showCity("Vienna");
-  displayForecast();
+  
