@@ -1,14 +1,13 @@
 body {
-    background-image: url("../images/horizon.jpg");
-    background-size: cover;
     color: white;
     text-align: center;
-    margin-top: 50px;
     font-family: 'Roboto', sans-serif;
 }
+
 h1 {
     font-size: 4.5rem;
 }
+
 h2 {
     margin: 30px;
 }
@@ -17,41 +16,45 @@ a {
     color: white;
 }
 
-button, #search {
+.container {
+    background-image: url(../images/clouds.jpg);
+    background-size: cover;
+    margin: 50px auto;
+    width: 60%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.box-weather {
+background-color: rgba(140, 144, 151, 0.2);
+border-radius: 20px;
+margin: 20px 50px;
+padding-bottom: 20px;
+padding-top: 20px;
+}
+
+.buttonLocation, .search {
     margin: 0 5px;
     border-radius: 10px;
     padding: 5px 10px;
 }
 
-#city-input {
+.city-input {
     margin-right: 5px;
     border-radius: 10px;
     padding: 5px 20px;
 }
 
-#temp {
+.temp {
     font-size: 40px;
-}
-
-.box {
-    background-color: rgba(140, 144, 151, 0.2);
-border-radius: 20px;
-margin: 20px 100px;
-padding-bottom: 20px;
-padding-top: 20px;;
-}
-
-.parameters {
-    font-size: larger;
 }
 
 .weatherDescriptionStyle {
     text-transform: capitalize;
-
 }
+
 .icon {
     width: 30px;
-    margin: 0 auto;
 }
 
 .active {

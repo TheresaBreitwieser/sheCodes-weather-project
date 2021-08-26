@@ -23,24 +23,33 @@ let days = [
   showDayTime.innerHTML = (`${day}, ${hours}:${minutes}`);
   
  //forecast
+
+ function formatDay(timestamp) {
+  let date = new Date (timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+  return days[day];
+ }
   function displayForecast(response){
     console.log(response);
+    let foreCast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = "";
-    let days = ["Monday", "Tuesday", "Wednesday"];
-    days.forEach(function (day) {
+    foreCast.forEach(function (forecastDay, index) {
+      if (index < 6) {
       forecastHTML = forecastHTML + ` 
       <div class="row justify-content-center">
         <div class="col-md-2 days">
-          <div>${day}</div>
+          <div>${formatDay(forecastDay.dt)}</div>
         </div>
         <div class="col-md-2 degree">
-          <div>30°C / 20°C</div>
+          <div>${Math.round(forecastDay.temp.max)}°C / ${Math.round(forecastDay.temp.min)}°C</div>
         </div>
         <div class="col-md-2 emojis">    
-          <div><i class="far fa-sun"></i></div>
+          <img src="images/${forecastDay.weather[0].icon}" alt="${forecastDay.weather[0].description}">
         </div>  
       </div>`;
+      }
     });
     forecastElement.innerHTML = forecastHTML;
   }
@@ -63,7 +72,7 @@ let days = [
     let wind = document.querySelector("#wind-speed");
     let iconElement = document.querySelector("#icon");
     celsiusTemperature = Math.round(response.data.main.temp);
-    currentTemp.innerHTML = Math.round(response.data.main.temp);
+    currentTemp.innerHTML = celsiusTemperature;
     currentHumidity.innerHTML = `Humidity: ${Math.round(response.data.main.humidity)}%`;
     h1.innerHTML = response.data.name;
     weatherDescription.innerHTML = response.data.weather[0].description;
@@ -132,5 +141,5 @@ let days = [
   let locationButton = document.querySelector("#buttonLocation");
   locationButton.addEventListener("click", getCurrentPosition);
 
+  // show Default city and weather 
   showCity("Vienna");
-  

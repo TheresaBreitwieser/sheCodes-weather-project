@@ -18,28 +18,28 @@
 <body>
 <div class="container">
         <form id="search-city-form">
-            <input type="text" id="city-input" name="city" autocomplete="off" placeholder="Enter city here...">
-            <input type="submit" value="Search" id="search">
-             <button id="buttonLocation">Current</button>
+            <input type="text" class="city-input" id="city-input" name="city" autocomplete="off" placeholder="Enter city here...">
+            <input type="submit" value="Search" id="search" class="search">
+             <button id="buttonLocation" class="buttonLocation">Current</button>
         </form>
-    <div class="box">
+    <div class="box-weather">
     <h1>Vienna</h1>
     <div class="row justify-content-center">
-        <div class="col-md-3 parameters">
+        <div class="col-md-3">
             <div id="currentDayTime"></div>
-            <div id="temperature">
-                <span id="temp">20</span>
+            <div id="temperature" class="temperature">
+                <span id="temp" class="temp">20</span>
                 <span>
                     <a href=# id="degrees" class="active">°C</a> |
                     <a href=# id="fahrenheit">F</a>
                 </span>
             </div>
-            <div id="weather-description" class="weatherDescriptionStyle"></div>
+        </div>
+        <div class="col-md-4">
+            <img src="" alt="" class="icon" id="icon"><div id="weather-description" class="weatherDescriptionStyle"></div>
             <div id="humidity">Humidity: 80%</div>   
             <div id="wind-speed">Wind speed:</div>
-        </div>
-        <div class="col-md-2">
-            <img src="" alt="" class="align-middle icon" id="icon">
+            
         </div>
     </div>
   <hr />
