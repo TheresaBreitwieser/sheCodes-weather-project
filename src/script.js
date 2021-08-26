@@ -71,6 +71,8 @@ let days = [
     let weatherDescription = document.querySelector("#weather-description");
     let wind = document.querySelector("#wind-speed");
     let iconElement = document.querySelector("#icon");
+    tempFahrenheit.classList.add("active");
+    tempDegrees.classList.remove("active");
     celsiusTemperature = Math.round(response.data.main.temp);
     currentTemp.innerHTML = celsiusTemperature;
     currentHumidity.innerHTML = `Humidity: ${Math.round(response.data.main.humidity)}%`;
